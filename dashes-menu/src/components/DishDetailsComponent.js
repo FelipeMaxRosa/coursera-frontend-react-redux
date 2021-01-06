@@ -31,12 +31,13 @@ export default class DishDetails extends Component {
         <li key={comment.id} >
           <p>{comment.comment}</p>
           <p>-- {comment.author},
-          {new Intl.DateTimeFormat('pt-BR', {
+          {/* {new Intl.DateTimeFormat('pt-BR', {
             day: '2-digit',
             month: 'long',
             year: 'numeric'
 
-          }).format(new Date(comment.date))}
+          }).format(new Date(comment.date))} */}
+            {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
           </p>
         </li>
       )
