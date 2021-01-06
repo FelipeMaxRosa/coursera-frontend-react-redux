@@ -1,0 +1,13 @@
+MOUNTING LIFECYCLE METHODS
+------------------------------------------------------
+  - constructor()
+    Primeiro a ser carregado
+  - render()
+    Segundo a ser carregado
+  - componentDidMount()
+    Será usado quando você precisar executar algo depois que o componente é adicionado ao DOM.
+  - getDerivedStateFromProps()
+    Em seguida este será executado se necessário.
+  - componentWillMount()
+
+  São chamados quando um componente é criado e inserido no DOM.

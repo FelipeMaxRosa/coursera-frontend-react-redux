@@ -1,0 +1,29 @@
+Ideation Report Template
+project title
+
+1. Introduction
+The idea for this project came from my desire to help my mother to have a website for her store.
+
+2. Expected list of features
+I hope to offer users who access the site a list of products that the store has available, with its price and details.
+As my mother makes crochet products by hand, there are a variety of possibilities, so that customers can request quotes and answer their questions.
+
+3. Market Research
+https://www.yarn.com/
+https://www.crochetaria.store/
+https://www.lionbrand.com/
+https://shop.crochetstores.com/
+https://www.skeinsisters.com.au/yarn/
+
+These sites have menus by category, product search, product details, product price, contact, everything I need as a reference for design and components.
+
+4. References
+https://www.yarn.com/
+https://www.crochetaria.store/
+https://www.lionbrand.com/
+https://shop.crochetstores.com/
+https://www.skeinsisters.com.au/yarn/
+
+
+colors
+https://rentalfurniture.in/

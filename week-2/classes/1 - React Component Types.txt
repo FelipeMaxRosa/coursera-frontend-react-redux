@@ -1,0 +1,21 @@
+REACT COMPONENT TYPES
+==========================================================
+Can be classified based how they are used
+  - Podem ser classificados em como eles são utilizados
+
+  - Presentation vs Container
+  - Skinny vs Fat
+  - Dumb vs Smart
+  - Stateless vs Stateful
+
+Estas são formas informais de classificar os componentes.
+
+* Presentation
+  - How thins look (markup, styles)
+  - Do not maintain their own local Stateless
+
+* Container
+  - Maintain state and communicate with data sources
+  - Responsible for making things works
+    -- Data fetching, state updates
+  - Provide the data to the presentation components
