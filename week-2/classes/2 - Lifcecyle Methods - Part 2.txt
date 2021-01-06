@@ -1,0 +1,19 @@
+LIFECYCLE METHODS - Part 2
+==========================================================
+When the components are updated
+Isto pode acontecer quando alguma informação ou estado do componente for alterado.
+
+- getDerivedStateFormPros()
+- shouldComponentUpdate()
+  -- returns a boolean variable, se o componente nunca for atualizado ele sempre retornará falso.
+- render()
+  -- is called whenever the component is being rendered again.
+  -- é chamado sempre que o componente está sendo renderizado novamente.
+
+
+- getSnapshotBeforeUpdate()
+  -- usado quanto temos um component com barra de rolagem e queremos guardar uma posição da rolagem
+     para que quando o componente re-renderizar você possa manter essa posição de rolagem.
+     Então isso seria útil para salvar informação.
+- componentDidUpdate()
+  -- It's called whenever the component is updated

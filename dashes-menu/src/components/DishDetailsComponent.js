@@ -4,9 +4,18 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 export default class DishDetails extends Component {
   constructor(props) {
     super(props);
+    console.log("Dishdetail Component constructor invoked!");
 
     this.state = {};
   };
+
+  componentDidMount() {
+    console.log("Dishdetail Component componentDidMount invoked!");
+  }
+  
+  componentDidUpdate() {
+    console.log("Dishdetail Component componentDidUpdate invoked!");
+  }
 
   renderDetails() {
     const dish = this.props.dish;
@@ -62,8 +71,9 @@ export default class DishDetails extends Component {
 
 
   render() {
+    console.log("Dishdetail Component render invoked!");
+
     const dish = this.state.dish;
-    console.log(dish);
 
     if (dish === null) {
       return (
