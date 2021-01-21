@@ -1,0 +1,19 @@
+MVC Framework
+======================================================
+* Model
+  - Gerencia o comportamento e os dados do domínio do aplicativo.
+  - Responde as solicitações de informações sobre seu estado atual.
+  - Responde a mudanças de estado, isso é feito geralmente através do Controller.
+  - Pode também ser configurado para notificar Observers.
+
+* View
+  - Está preocupada em apresentar as informações aos usuários em um elemento de interface de usuário
+
+* Controller
+  - Recebe informações do View, onde qualquer iteração do usuário que é formada será capturada e,
+    em seguida passada para o Controller, a fim de agir sobre essas interações do usuário.
+  - É trabalho do controller, em seguida, iniciar uma mudança do estado do Model, se for necessário.
+  - Pode aceitar a entrada do usuário em termos das interações do usuário que ocorreram, e em seguida
+    ele irá instruir o modelo para alterar o estado.
+    
+  

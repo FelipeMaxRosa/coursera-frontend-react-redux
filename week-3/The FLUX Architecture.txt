@@ -1,0 +1,12 @@
+The FLUX Architecture
+=============================================================
+
+Unidirectional Data Flow
+
+Action -> Dispatcher -> Store -> View
+
+  Nesse fluxo, a unidade centrar para nossa arquitetura é a Store, onde o mesmo se torna um armazém para 
+  o estado.
+  Somente podemos solicitar alterações no estado por meio de (Actions) que são sincronizadas com o (Dispatcher).
+  Portanto, o (Dispatcher) se torna uma unidade de controle para serializar todas as ações solicitadas para
+  alterar o armazenamento.

@@ -1,0 +1,18 @@
+MVVM Framework
+(Model - View - View - Model)
+======================================================
+  - Descendent of MVC
+  - Sometimes called Model-View-Binder
+
+
+* Model
+  - Business Logic and Data
+
+* View Model
+  - Encapsula a parte das informações necessárias para renderizar uma exibição específica.
+  - É a abstração da vista que expõe as propriedades públicas e os vários comentários que estão
+    disponíveis. Portanto, isso fornece uma ligação de dados declarativa.
+  
+  
+    
+  
