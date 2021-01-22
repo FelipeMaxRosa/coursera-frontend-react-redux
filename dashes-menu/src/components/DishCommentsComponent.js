@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import { Media } from "reactstrap";
+import { Media, Button } from "reactstrap";
 
 
 export default class DishComments extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      isModalOpen: false,
+    };
+
+    this.toggleModal = this.toggleModal.bind(this);
   };
+
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen
+    });
+  }
 
   render() {
     const comments = this.props.comments.map(({id, comment, author, date}) => {
@@ -19,7 +29,6 @@ export default class DishComments extends Component {
       )
     });
     
-
     return (
       <>
         <h3>Comments</h3>
