@@ -5,7 +5,7 @@ import {
   Button, Label, Col, Row } from "reactstrap";
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
-// import CommentForm from './CommentFormComponent';
+import { Loading } from "./LoadingComponent";
 
 
 function RenderDish({dish}) {
@@ -24,11 +24,7 @@ function RenderDish({dish}) {
   )
 }
 
-function toggleModal() {
-
-}
-
-function RenderComments({comments}) {
+function RenderComments({ comments, dishId, addComment }) {
   const allComments = comments.map((comment) => {
     return (
       <li key={comment.id} >
@@ -57,7 +53,7 @@ function RenderComments({comments}) {
           <ul className='list-unstyled'>
               {allComments}
         </ul>
-        <CommentForm />
+        <CommentForm dishId={dishId} addComment={addComment}/>
       </div>
 
     )
@@ -89,8 +85,11 @@ class CommentForm extends Component {
   }
 
   handleSubmit(values){
-    console.log("Current State is: " + JSON.stringify(values));
-    alert("Current State is: " + JSON.stringify(values));
+    this.toggleModal();
+    // console.log("Current State is: " + JSON.stringify(values));
+    // alert("Current State is: " + JSON.stringify(values));
+    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    // alert(JSON.stringify(values));
   };
   
   render() {
@@ -124,10 +123,10 @@ class CommentForm extends Component {
               
               <Col className="form-group">
                 <Row>
-                  <Label htmlFor="yourname">Your Name</Label>
+                  <Label htmlFor="author">Your Name</Label>
                 </Row>
                 <Row>
-                  <Control.text model=".yourname" id="yourname" name="yourname" 
+                  <Control.text model=".author" id="author" name="author" 
                       placeholder="Your Name"
                       className="form-control"
                       validators = {{
@@ -172,13 +171,24 @@ class CommentForm extends Component {
     
 }
 
-
-const DishDetail = ({dish, comments}) => {
-  if (dish === null) {
+const DishDetail = ({ dish, comments, addComment, isLoading, errMess }) => {
+  if (isLoading) {
     return (
-      <div></div>
+      <div className="container">
+        <div className="row">
+          <Loading />
+        </div>
+      </div>
     )
-  } else {
+  } else if (errMess) {
+    return (
+      <div className="container">
+        <div className="row">
+          <h4>{ errMess }</h4>
+        </div>
+      </div>
+    )    
+  }  else if (dish != null) {
     return (
       <div className="container">
         <div className="row">
@@ -195,10 +205,15 @@ const DishDetail = ({dish, comments}) => {
         
         <div className="row">
           <RenderDish dish={dish}/>
-          <RenderComments comments={comments}/>
+          <RenderComments comments={comments}
+            addComment={addComment}
+            dishId={dish.id}
+          />
         </div>
       </div>
     )
+  } else {
+    <div></div>
   }
 }
   
