@@ -25,7 +25,7 @@ function RenderDish({dish}) {
   )
 }
 
-function RenderComments({ comments, dishId, addComment }) {
+function RenderComments({ comments, dishId, postComment }) {
   const allComments = comments.map((comment) => {
     return (
       <li key={comment.id} >
@@ -54,7 +54,7 @@ function RenderComments({ comments, dishId, addComment }) {
           <ul className='list-unstyled'>
               {allComments}
         </ul>
-        <CommentForm dishId={dishId} addComment={addComment}/>
+        <CommentForm dishId={dishId} postComment={postComment}/>
       </div>
 
     )
@@ -89,7 +89,7 @@ class CommentForm extends Component {
     this.toggleModal();
     // console.log("Current State is: " + JSON.stringify(values));
     // alert("Current State is: " + JSON.stringify(values));
-    this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     // alert(JSON.stringify(values));
   };
   
@@ -172,7 +172,7 @@ class CommentForm extends Component {
     
 }
 
-const DishDetail = ({ dish, comments, addComment, isLoading, errMess }) => {
+const DishDetail = ({ dish, comments, postComment, isLoading, errMess }) => {
   if (isLoading) {
     return (
       <div className="container">
@@ -207,7 +207,7 @@ const DishDetail = ({ dish, comments, addComment, isLoading, errMess }) => {
         <div className="row">
           <RenderDish dish={dish}/>
           <RenderComments comments={comments}
-            addComment={addComment}
+            postComment={postComment}
             dishId={dish.id}
           />
         </div>
