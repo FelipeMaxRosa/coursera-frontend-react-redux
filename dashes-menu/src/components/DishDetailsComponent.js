@@ -6,6 +6,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from "./LoadingComponent";
+import { baseURL } from '../shared/baseUrl';
 
 
 function RenderDish({dish}) {
@@ -13,7 +14,7 @@ function RenderDish({dish}) {
     <div className="col-12 col-md-5 m-1">
       <Card>
         {/* <CardImg width="100%" src={dish.image} alt={dish.name} /> */}
-        <CardImg top src={dish.image} alt={dish.name} />
+        <CardImg top src={baseURL + dish.image} alt={dish.name} />
 
         <CardBody>
           <CardTitle style={{fontWeight: "bold"}}>{dish.name}</CardTitle>
