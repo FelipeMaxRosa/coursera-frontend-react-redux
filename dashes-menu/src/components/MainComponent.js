@@ -8,7 +8,7 @@ import DishDetail from "./DishDetailsComponent";
 import About from "./AboutComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
-import { postComment, fetchComments, fetchDishes, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
+import { postComment, fetchComments, fetchDishes, fetchPromos, fetchLeaders, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
     dishes: state.dishes,
     comments: state.comments,
     promotions: state.promotions,
-    leaders: state.leaders
+    leaders: state.leaders,
+    feedback: state.feedback
   }
 }
 const mapDispatchToProps = dispatch => ({
@@ -27,6 +28,8 @@ const mapDispatchToProps = dispatch => ({
   fetchComments: () => { dispatch(fetchComments()) },
   fetchPromos: () => { dispatch(fetchPromos()) },
   fetchLeaders: () => { dispatch(fetchLeaders()) },
+  postFeedback: (firstname, lastname, telnum, email, agree, contactType, message) =>
+    dispatch(postFeedback(firstname, lastname, telnum, email, agree, contactType, message)),
 });
     
 class Main extends Component {
@@ -82,7 +85,8 @@ class Main extends Component {
               <Route path="/home" component={HomePage} />
               <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
               <Route path="/menu/:dishId" component={DishWithId}/>
-              <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+              <Route exact path="/contactus" component={() => <Contact
+                resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback}/>} />
               <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders.leaders} />} />
               <Redirect to="/home" />
             </Switch>
