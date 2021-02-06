@@ -23,10 +23,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
   fetchDishes: () => { dispatch(fetchDishes()) },
-  // fetchLeaders: () => { dispatch(fetchLeaders()) },
   resetFeedbackForm: () => { dispatch(actions.reset('feedback')) },
   fetchComments: () => { dispatch(fetchComments()) },
   fetchPromos: () => { dispatch(fetchPromos()) },
+  fetchLeaders: () => { dispatch(fetchLeaders()) },
 });
     
 class Main extends Component {
@@ -39,12 +39,12 @@ class Main extends Component {
     this.props.fetchDishes();
     this.props.fetchComments();
     this.props.fetchPromos();
-    // this.props.fetchLeaders();
+    this.props.fetchLeaders();
   }
 
   render() {
     const HomePage = () => {
-      console.log(this.props.leaders);
+      // console.log("Estou aquiiiii", this.props.leaders.leaders);
       return (
         <Home
           dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
@@ -53,7 +53,9 @@ class Main extends Component {
           promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]} 
           promosLoading={this.props.promotions.isLoading}
           promosErrMess={this.props.promotions.errMess}
-          leader={this.props.leaders.filter((leader) => leader.featured)[0]}
+          leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
+          leaderLoading={this.props.leaders.isLoading}
+          leaderErrMess={this.props.leaders.errMess}
         />
       )
     }
@@ -81,7 +83,7 @@ class Main extends Component {
               <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
               <Route path="/menu/:dishId" component={DishWithId}/>
               <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
-              <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
+              <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders.leaders} />} />
               <Redirect to="/home" />
             </Switch>
           </CSSTransition>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardImg, CardTitle, CardSubtitle, CardText, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseURL } from '../shared/baseUrl';
+
 
 function About({leaders}) {
 
@@ -10,11 +12,13 @@ function About({leaders}) {
   //   );
   // });
 
+  console.log("estou aquiiiii", leaders);
+
   const renderLeader = (leader) => { 
     return (
       <Media className="mb-4 mt-2">
         <Media left className="mr-5">
-          <Media object src={leader.image} alt={leader.name} />
+          <Media object src={baseURL + leader.image} alt={leader.name} />
         </Media>
 
         <Media body>
