@@ -1,0 +1,16 @@
+1. Action Types and Action Creators
+	fecthLeaders()
+	ActionCreators.js
+	leaders.js
+	MainComponent.js -> leaders information
+	AboutComponent, leadership information rendered from dataFetch.
+	
+2. Feedback form
+	Send to the server and then posted in the local called 3001/feedback endpoint.
+	Mostrar resposta em um alert()
+	mostrada a partir de ActionCreator.js 
+	function postFeedback
+
+3. Add animation
+	About us page
+	Adiocionar animacao para o Corporate Leadership com Stagger
