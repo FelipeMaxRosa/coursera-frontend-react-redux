@@ -1,7 +1,8 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardImg, CardTitle, CardSubtitle, CardText, CardBody, CardHeader, Media } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseURL } from '../shared/baseUrl';
+import { Stagger, Fade } from "react-animation-components";
 
 
 function About({leaders}) {
@@ -12,21 +13,21 @@ function About({leaders}) {
   //   );
   // });
 
-  console.log("estou aquiiiii", leaders);
-
   const renderLeader = (leader) => { 
     return (
-      <Media className="mb-4 mt-2">
-        <Media left className="mr-5">
-          <Media object src={baseURL + leader.image} alt={leader.name} />
-        </Media>
+      <Fade in>
+        <Media className="mb-4 mt-2">
+          <Media left className="mr-5">
+            <Media object src={baseURL + leader.image} alt={leader.name} />
+          </Media>
 
-        <Media body>
-          <Media heading>{leader.name}</Media>        
-          <Media><p>{leader.designation}</p></Media>
-          {leader.description}
+          <Media body>
+            <Media heading>{leader.name}</Media>        
+            <Media><p>{leader.designation}</p></Media>
+            {leader.description}
+          </Media>
         </Media>
-      </Media>
+      </Fade>
     )
   };
 
@@ -91,11 +92,13 @@ function About({leaders}) {
 
           <div className="col-12">
             <Media list>
-              {leaders.map((leader) => {
-                return (
-                  renderLeader(leader)
-                )
-              })}
+              <Stagger in>
+                {leaders.map((leader) => {
+                  return (
+                    renderLeader(leader)
+                    )
+                })}
+              </Stagger>
             </Media>
           </div>
         </div>

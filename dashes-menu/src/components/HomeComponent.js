@@ -34,7 +34,7 @@ function RenderCard({ item, isLoading, errMess }) {
 
 function Home({ dish, promotion, leader, dishesLoading, dishesErrMess,
   promosLoading, promosErrMess, leaderLoading, leaderErrMess }) {
-  console.log(leader);
+
   return (
     <div className="container">
       <div className="row align-items-start">
